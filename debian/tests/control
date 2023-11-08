@@ -1,0 +1,10 @@
+Tests: python3-pytest-httpbin
+Depends: python3-all,
+         python3-decorator,
+         python3-flask,
+         python3-httpbin,
+         python3-pytest,
+         python3-pytest-httpbin,
+         python3-requests,
+         python3-six,
+         python3-werkzeug
