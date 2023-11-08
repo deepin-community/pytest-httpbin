@@ -1,5 +1,137 @@
-template-repository (1.0-1) unstable; urgency=medium
+pytest-httpbin (1.0.0-3) unstable; urgency=medium
 
-  * Initial release
+  [ Ondřej Nový ]
+  * Bump Standards-Version to 4.4.1.
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Sandro Tosi <morph@debian.org>  Thu, 02 Jun 2022 22:03:12 -0400
+
+pytest-httpbin (1.0.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Drop Python 2 support.
+
+ -- Andrey Rahmatullin <wrar@debian.org>  Wed, 21 Aug 2019 23:31:11 +0500
+
+pytest-httpbin (1.0.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Pierre-Elliott Bécue ]
+  * New upstream release 1.0.0
+    - Dropped patches
+  * d/control:
+    - Replace my crans address by my debian one.
+    - Add {build-,}dependency on python-ipaddress to allow the SSL validation
+      of an IP as a hostname
+    - Raise debhelper compatibility level to 12
+    - Bump Standards-Version to 4.4.0. No change required
+  * d/t/control:
+    - Add the dependency on python-ipaddress for the Python2 test.
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Sat, 20 Jul 2019 23:07:23 +0200
+
+pytest-httpbin (0.3.0-4) unstable; urgency=medium
+
+  * d/patches:
+    - Add patch 0002 to replace the upstream's issued SSL certificates.
+      Debian's standards regarding SSL certificates increased. Now, a less
+      than 2048 bit long certificate isn't safe enough. We replace the
+      upstream's issued certs with these. (Closes: 907168)
+  * d/control:
+    - Bump Standards-Version to 4.2.1. No change required
+
+ -- Pierre-Elliott Bécue <becue@crans.org>  Wed, 29 Aug 2018 15:05:21 +0200
+
+pytest-httpbin (0.3.0-3) unstable; urgency=medium
+
+  * d/patches:
+    - Add patch 0001 to fix non-working tests since pytest 3.6 release.
+      Since 3.6 release of pytest, calling fixture multiple times is not
+      allowed. As conftest needs, to work properly, to know that
+      httpbin_ca_bundle is a fixture, we use a derivative (essentially a
+      dummy function) that we decorate. Hence the tests pass properly and the
+      pytest requirements are still fulfilled. The alternative (setting the
+      autouse on the httpbin_ca_bundle in plugin.py) is not possible without
+      breaking pytest-httpbin's current API.
+  * d/control:
+    - Bump Standards-Version to 4.1.5. No change required
+    - Add Rules-Requires-Root: no
+
+ -- Pierre-Elliott Bécue <becue@crans.org>  Sat, 21 Jul 2018 21:42:50 +0200
+
+pytest-httpbin (0.3.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * deb/control: remove myself from Uploaders.
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+
+ -- Daniel Stender <stender@debian.org>  Thu, 01 Mar 2018 18:37:25 +0100
+
+pytest-httpbin (0.3.0-1) unstable; urgency=medium
+
+  [ Daniel Stender ]
+  * drop git-dpm regime (remove deb/.git-dpm).
+  * deb/gbp.conf: add standard settings incl. debian-branch for DEP-14.
+
+  [ Pierre-Elliott Bécue ]
+  * New upstream release.
+  * $ wrap-and-sort
+  * d/control:
+    - Add myself in uploaders (Closes: #868845)
+    - Bump Standards-Version to 4.1.3
+    - Bump dh requirement on 11
+  * d/compat:
+    - Bump compat to 11
+  * d/copyright:
+    - Switching format URL to https
+  * d/rules:
+    - pytest called with argument -s to avoid capturing stdout/stderr (Closes:
+      #844358, #884432)
+    - Move https?_proxy variables to the actual call of dh_auto_test.
+  * d/tests/*:
+    - Calls to pytest with argument -s, for the same reason as above.
+
+ -- Pierre-Elliott Bécue <becue@crans.org>  Wed, 24 Jan 2018 19:09:59 +0100
+
+pytest-httpbin (0.2.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * deb/control: bump standards to 3.9.8 (no changes needed).
+
+ -- Daniel Stender <stender@debian.org>  Thu, 08 Dec 2016 18:52:54 +0100
+
+pytest-httpbin (0.2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Build Python 3 package (Closes: #806137):
+    + deb/control: added package description and build-deps.
+    + deb/rules: run sequencer with dh_python3.
+    + extended DEP-8 tests for new package.
+  * deb/control:
+    + updated uploader email address.
+    + bumped standards to 3.9.7 (no changes needed).
+    + use HTTPS also for Vcs-Git.
+    + removed Testsuite field (deprecated).
+  * deb/copyright: updated.
+  * deb/rules: dropped override for auto_clean to handle egg-info.
+  * deb/tests: removed bashisms from test scripts, cosmetics.
+  * Added deb/source/options (ignoring egg-info).
+
+ -- Daniel Stender <stender@debian.org>  Fri, 18 Mar 2016 09:04:09 +0100
+
+pytest-httpbin (0.1.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #787114).
+
+ -- Daniel Stender <debian@danielstender.com>  Fri, 20 Nov 2015 09:58:12 +0100
