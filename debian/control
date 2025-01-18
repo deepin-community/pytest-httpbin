@@ -2,20 +2,20 @@ Source: pytest-httpbin
 Section: python
 Priority: optional
 Maintainer: Debian Python Team <team+python@tracker.debian.org>
-Uploaders: Pierre-Elliott Bécue <peb@debian.org>
-Build-Depends: debhelper-compat (= 12),
-               dh-python,
-               pandoc,
-               python3-all,
-               python3-decorator,
-               python3-flask,
-               python3-httpbin,
-               python3-pytest,
-               python3-requests,
-               python3-setuptools,
-               python3-six,
-               python3-werkzeug
-Standards-Version: 4.4.1
+Uploaders:
+ Pierre-Elliott Bécue <peb@debian.org>,
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-python3,
+ pybuild-plugin-pyproject,
+ pandoc,
+ python3-all,
+ python3-flask <!nocheck>,
+ python3-httpbin <!nocheck>,
+ python3-pytest <!nocheck>,
+ python3-requests <!nocheck>,
+ python3-setuptools,
+Standards-Version: 4.7.0
 Rules-Requires-Root: no
 Homepage: https://github.com/kevin1024/pytest-httpbin
 Vcs-Git: https://salsa.debian.org/python-team/packages/pytest-httpbin.git
@@ -23,7 +23,10 @@ Vcs-Browser: https://salsa.debian.org/python-team/packages/pytest-httpbin
 
 Package: python3-pytest-httpbin
 Architecture: all
-Depends: python3-pytest, ${misc:Depends}, ${python3:Depends}
+Depends:
+ python3-pytest,
+ ${misc:Depends},
+ ${python3:Depends},
 Description: py.test plugin providing a local httpbin (Python 3)
  httpbin is a WSGI based test server for testing HTTP applications.
  pytest-httpbin creates a fixture for the py.test framework that

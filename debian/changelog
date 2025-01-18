@@ -1,3 +1,32 @@
+pytest-httpbin (2.1.0-1) unstable; urgency=medium
+
+  * Team upload
+  * [e336dd9] New upstream version 2.1.0
+  * [2a6c4a4] d/control: Bump Standards-Version to 4.7.0
+    No further changes needed.
+
+ -- Carsten Schoenert <c.schoenert@t-online.de>  Sat, 28 Sep 2024 19:11:27 +0200
+
+pytest-httpbin (2.0.0-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Update standards version to 4.6.2, no changes needed.
+
+  [ Carsten Schoenert ]
+  * [c156369] d/watch: Move to git mode and version 4
+  * [df48c51] New upstream version 2.0.0
+    (Closes: #1020728, #1020796,  #1058232)
+  * [e3f0e9a] debian/*: Running wrap-and-sort -ast
+  * [7600b3e] d/control: Add BuildProfileSpecs, adjust needed B-D
+  * [9276562] d/rules: Remove --with option in default target
+  * [c4678d0] autopkgtest: Update test setup
+  * [fdffab2] d/README.source: Add basic information about source
+
+ -- Carsten Schoenert <c.schoenert@t-online.de>  Tue, 26 Dec 2023 11:20:47 +0100
+
 pytest-httpbin (1.0.0-3) unstable; urgency=medium
 
   [ Ondřej Nový ]
